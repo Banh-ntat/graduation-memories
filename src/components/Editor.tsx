@@ -366,7 +366,7 @@ export default function Editor({ gender, onDone, onBack }: { gender: Gender; onD
   }
 
   return (
-    <div className="mx-auto max-w-2xl h-dvh lg:h-auto flex flex-col lg:min-h-[calc(100vh-4rem)]">
+    <div className="mx-auto w-full max-w-[90vw] sm:max-w-2xl h-dvh lg:h-auto flex flex-col lg:min-h-[calc(100vh-4rem)]">
       {/* ===== TOP: Canvas + Slot tabs + Upload (sticky on mobile only) ===== */}
       <div className="sticky lg:static top-0 z-10 bg-gradient-to-b from-cream via-cream to-transparent pb-3 pt-3 lg:pb-0 lg:bg-transparent flex flex-col gap-3">
         <canvas ref={canvasRef} className="w-full rounded-2xl shadow bg-white" onPointerDown={down} onPointerMove={move}
@@ -379,7 +379,7 @@ export default function Editor({ gender, onDone, onBack }: { gender: Gender; onD
             </button>
           ))}
         </div>
-        <label className="rounded-2xl bg-pink py-3 text-center font-semibold cursor-pointer">
+        <label className="rounded-2xl bg-pink py-2 text-center font-semibold cursor-pointer">
           {photo ? 'Đổi ảnh' : 'Tải ảnh'} cho "{adjustedSlot.label}"
           <input type="file" accept="image/jpeg,image/png" hidden onChange={e => { onFile(e.target.files?.[0]); e.target.value = '' }} />
         </label>
@@ -395,9 +395,9 @@ export default function Editor({ gender, onDone, onBack }: { gender: Gender; onD
       <div className="sticky lg:static bottom-0 z-10 bg-gradient-to-t from-cream via-cream to-transparent pt-3 lg:pt-0 lg:bg-transparent space-y-3 lg:mt-auto">
         <p className="text-xs opacity-70 text-center">Kéo ảnh trên khung để căn mặt, chụm 2 ngón/cuộn chuột để zoom. Kéo thanh trượt hoặc gõ số % để chỉnh chính xác.</p>
         {error && <p className="rounded-xl bg-red-100 p-2 text-sm text-red-700 text-center">{error}</p>}
-        <div className="flex gap-2">
-          <button className="rounded-full bg-white px-5 py-3 font-semibold" onClick={onBack}>← Quay lại</button>
-          <button disabled={busy} className="flex-1 rounded-full bg-accent py-3 font-bold text-white disabled:opacity-60" onClick={finish}>
+        <div className="flex gap-1">
+          <button className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold" onClick={onBack}>← Quay lại</button>
+          <button disabled={busy} className="flex-1 rounded-full bg-accent py-1.5 text-sm font-bold text-white disabled:opacity-60" onClick={finish}>
             {busy ? 'Đang tạo ảnh…' : 'Tạo ảnh'}
           </button>
         </div>
